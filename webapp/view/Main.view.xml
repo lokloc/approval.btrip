@@ -1,0 +1,192 @@
+<mvc:View controllerName="code.d01.approval.btrip.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:form="sap.ui.layout.form">
+    <Page id="page" title="{i18n>title}">
+    <Panel headerText="출장 요청 목록"
+           class="sapUiResponsiveMargin"
+           width="auto"
+           height="50%"
+    >
+    <Table mode="SingleSelectLeft"
+           selectionChange=".onSelectionChange"
+           items="{/RequestListSet}"
+           growing="true"
+           growingScrollToLoad="true"
+           >
+           <columns>
+                    <Column id="idColumn">
+                        <Text
+                            id="idIDText"
+                            text="출장 요청 ID"
+                        />
+                    </Column>
+                    <Column id="id0Column">
+                        <Text
+                            id="idText"
+                            text="직원 ID"
+                        />
+                    </Column>
+                    <Column id="id1Column">
+                        <Text
+                            id="id0Text"
+                            text="출장 목적지"
+                        />
+                    </Column>
+                    <Column id="id2Column">
+                        <Text
+                            id="id1Text"
+                            text="출장 시작일"
+                        />
+                    </Column>
+                    <Column id="id3Column">
+                        <Text
+                            id="id2Text"
+                            text="출장 종료일"
+                        />
+                    </Column>
+                    <Column >
+                        <Text text="예산 금액" />
+                    </Column>
+                    <Column >
+                        <Text text="상태" />
+                    </Column>
+                    <Column >
+                        <Text text="비고" />
+                    </Column>
+                    <Column >
+                        <Text text="생성일" />
+                    </Column>
+                </columns>
+           <items>
+                    <ColumnListItem id="idColumnListItem">
+                        <ObjectIdentifier title="{TripId}"/>
+                        <ObjectIdentifier title="{EmpId}"/>
+                        <ObjectIdentifier title="{Dest}"/>
+                        <ObjectIdentifier title="{BgnDate}"/>
+                        <ObjectIdentifier title="{EndDate}"/>
+                        <ObjectIdentifier title="{BudAmt}"/>
+                        <ObjectIdentifier title="{Stat}"/>
+                        <ObjectIdentifier title="{Note}"/>
+                        <ObjectIdentifier
+                            id="id3ObjectIdentifier"
+                            title="{
+                            path: 'CreatedAt',
+                            type: 'sap.ui.model.odata.type.DateTime',
+                            formatOptions: {
+                                pattern: 'yyyy-MM-dd'
+                            }    
+                        }"
+                        />
+
+                        <!-- <ObjectIdentifier
+                            id="id2ObjectIdentifier"
+                            title="{BpRole}"
+                        />
+                        <ObjectIdentifier
+                            id="id3ObjectIdentifier"
+                            title="{BpId}"
+                        />
+                        <ObjectIdentifier
+                            id="id4ObjectIdentifier"
+                            title="{EmailAddress}"
+                        />
+                        <Text
+                            id="idClassText"
+                            text="{CompanyName}"
+                        /> -->
+                    </ColumnListItem>
+                </items>
+           
+           
+           
+           </Table>
+    
+    
+    </Panel>
+
+    <Panel headerText="선택한 출장 요청 정보"
+           class="sapUiResponsiveMargin"
+           width="auto"
+           height="auto"
+    >
+
+    <form:SimpleForm
+            id="idSimpleForm"
+            class="sapUiResponsiveMargin"
+            width="auto"
+        >
+            <Label
+                id="idIDLabel"
+                text="출장 요청 ID"
+            />
+            <Text
+                id="idCarridText"
+                text="{sel>/data/TripId}"
+            />
+            <Label
+                id="idLabel"
+                text="직원 ID"
+            />
+            <Text
+                id="idConnidText"
+                text="{sel>/data/EmpId}"
+            />
+            <Label
+                id="id0Label"
+                text="출장 목적지"
+            />
+            <Text
+                id="idFldateText"
+                text="{sel>/data/Dest}"
+            />
+            <Label
+                id="id1Label"
+                text="출장 시작일"
+            />
+            <Text
+                id="idBookidText"
+                text="{sel>/data/BgnDate}"
+            />
+
+            <Label text="출장 종료일"/>
+            <Text text="{sel>/data/EndDate}"/>
+
+            <Label text="예산 금액"/>
+            <Text text="{sel>/data/BudAmt}"/>
+            
+            <Label text="사용 금액"/>
+            <Text text="{sel>/data/UseAmt}"/>
+
+            <Label text="상태"/>
+            <Text text="{sel>/data/Stat}"/>
+
+            <Label text="비고"/>
+            <Text text="{sel>/data/Note}"/>
+
+            <Label text="생성일"/>
+            <Text text="{sel>/data/CreatedAt}"/>
+
+        </form:SimpleForm>
+    
+
+    </Panel>
+    <footer>
+            <OverflowToolbar>
+                <ToolbarSpacer />
+                <Button 
+                    text="승인" 
+                    type="Accept"
+                    press="onPass"
+                />
+                <Button 
+                    text="거절" 
+                    type="Attention"
+                    press="onDeny"
+                />
+            </OverflowToolbar>
+        </footer>
+
+
+    </Page>
+</mvc:View>
