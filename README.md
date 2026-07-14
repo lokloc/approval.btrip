@@ -1,12 +1,20 @@
-﻿<!-- codex-summary:start -->
+<!-- codex-summary:start -->
 # approval.btrip
 
 An SAP Fiori application.
 
-## 프로젝트 개요
+## 구현 기능 요약
 
-- 유형: SAPUI5 애플리케이션
-- 주요 패키지: @sap/ux-ui5-tooling, @sap-ux/ui5-middleware-fe-mockserver, @ui5/cli
+### App 화면
+
+- 역할: 화면 정보 표시와 사용자 입력 처리
+
+### 출장 요청 목록 화면
+
+- 역할: 목록 조회 및 항목 선택, 상세 정보 표시·편집, 업무 명령 실행
+- 주요 항목: 선택한 출장 요청 정보, 출장 요청 목록, 출장 요청 ID, 직원 ID, 출장 목적지, 출장 시작일, 출장 종료일, 예산 금액
+- 사용자 동작: Pass [onPass], Deny [onDeny], 항목 선택 [onSelectionChange]
+- 처리 내용: 입력값 또는 선택 데이터를 수정
 
 ## 실행 방법
 
@@ -14,13 +22,6 @@ An SAP Fiori application.
 npm install
 npm start
 ```
-
-## 주요 구조
-
-- `webapp/`: 애플리케이션 소스
-- `webapp/manifest.json`: 앱 설정, 모델, 데이터 소스 및 라우팅
-- `ui5.yaml`: UI5 Tooling 설정
-- `package.json`: 실행 스크립트와 의존성
 
 <!-- codex-summary:end -->
 
@@ -66,6 +67,3 @@ An SAP Fiori application.
 #### Pre-requisites:
 
 1. Active NodeJS LTS (Long Term Support) version and associated supported NPM version.  (See https://nodejs.org)
-
-
-
